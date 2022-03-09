@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>studentRecords</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+<h4>Hello, {{user.first_name}} {{user.last_name}}</h4>
+    <a href="accounts/logout">LOGOUT</a><br>
+{% else %}
+    <a href="accounts/register">REGISTER</a>
+    <a href="accounts/login">LOGIN</a><br>
+{% endif %}
+
+  {%for r in rec %}
+    <img src="{{r.img.url}}">
+    <h1>USN </h1><h3>{{r.usn}}</h3>
+    <h1>Full Name </h1><h3>{{r.fname}} {{r.mname}} {{r.lname}}</h3>
+    <h1>Mobile No </h1><h3>{{r.mobno}}</h3>
+    <h1>Email ID </h1><h3>{{r.emailid}}</h3><br>
+  {% endfor%}
+
+</body>
+</html>
